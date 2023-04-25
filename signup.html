@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <style type="text/css">
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      background: white;
+      color: #000;
+      font-family: "Noto Sans Japanese", sans-serif;
+      margin: 1% 10% 1%;
+    }
+
+    .game_example img {
+      width: 25%;
+    }
+
+    .probe img {
+      width: 300px;
+    }
+
+    .startButton {
+      width: 150px;
+    }
+
+    #warning {
+      color: #FF0000;
+    }
+
+    #check_warning {
+      color: #FF0000;
+    }
+  </style>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/notosansjapanese.css">
+  <title>カードゲーム課題実験</title>
+</head>
+
+<body>
+  <h1>カードゲーム課題実験説明</h1>
+  <h2>1. はじめに</h2>
+  <p>ご参加ありがとうございます。</p>
+  <p>カードゲームをプレイする実験に参加していただきます。</p>
+  <p>実験は、ゲームを行った後にアンケートに答えていただいて終了となります。</p>
+  <p>はじめに、ランサーズユーザIDを記入し、以下の説明を読んでから実験開始ボタンを押してください。</p>
+  <p>ランサーズユーザID
+    <input type="text" id="input_name" required="required" placeholder="例: afke36f8" />
+  </p>
+  <h2>2. ゲーム説明</h2>
+  <h3>ルール</h3>
+  <p><a href='/node2/the-game/rule' target="_blank" rel="noopener noreferrer">PDF文書</a>で説明します。（リンクをクリックすると新しいタブが開きます。）</p>
+  <h3>操作方法</h3>
+  <p>ゲーム画面はリアルタイムに更新されます。ただし、画面が真っ白になるなど操作できなくなった場合はブラウザの再読み込み（リロード）をしてください。</p>
+  <p>「対戦開始」ボタンをクリックするとゲームが始まります。</p>
+  <p>ゲームが始まると、自分の手札、現在のブロックの状況、今までの対戦成績が画面に表示されます。手札を表す長方形はボタンになっています。</p>
+  <p>これらを確認していただき、出すカードをクリックしてください。クリックすると、選んでいるカードの数字と確定ボタンが手札の上に表示されます。確定ボタンをクリックするまでは、カードを選び直すことができます。選んだカードに決める場合は、数字の右側に現れた確定ボタンをクリックしてください。二人とも出すカードを確定するとゲームが進みます。</p>
+  <p>この操作を繰り返してプレイしていきます。</p>
+  <p>1ブロックの対戦が終わると、すぐに次のブロックが始まります。</p>
+  <p>対戦開始から<span style="color:#FF0000">30分が経過</span>してブロックの対戦が終わると、ゲームは終わります。</p>
+  <p>ゲームの終了後に表示される「アンケート」ボタンをクリックするとアンケートのページへ遷移します。</p>
+  <h3>課題</h3>
+  <p>ゲームプレイでは、ブロックをできるだけたくさん繰り返しプレイしていただきます。ただし、急いで行う必要はありません。快適にプレイできる速さで行ってください。</p>
+  <p>なお、対戦相手は<span style="color:#FF0000">人またはコンピュータのどちらか</span>になります。相手より多くのブロックで勝つことを目指してください。</p>
+  <p>対戦開始から<span style="color:#FF0000">30分が経過</span>してブロックの対戦が終わり、「アンケート」ボタンが表示されるまでプレイしてください。</p>
+  <p>「アンケート」ボタンが表示されたらクリックしていただき、アンケートにお答えください。</p>
+  <h2>3. 注意事項</h2>
+  <ul>
+    <li>スマートフォンやタブレットではゲームを行えません。<span style="color:#FF0000">PCからアクセス</span>してください。</li>
+    <li><span style="color:#FF0000">Internet Explorer以外</span>のブラウザからアクセスしてください。</li>
+    <li>実験ではブラウザの戻る、進む、閉じるの操作を絶対に行わないでください。</li>
+    <li>ゲームが始まったら途中で中断することなく「アンケート」ボタンが表示されるまでプレイしてください。</li>
+    <li>もし以上の注意点を行ってしまった場合やトラブルがあった場合は、ゲーム終了後のアンケートにてご報告ください。</li>
+  </ul>
+  <br>
+  <p><span id="warning"></span></p>
+  <p><span id="check_warning"></span></p>
+  <p>実験について理解しましたか？<input type="checkbox" id="check" /></p>
+  <button onclick="taskStartBtn()" class="startButton">確認クイズへ</button>
+
+  <script>
+    function taskStartBtn() {
+      let id = document.getElementById("input_name").value;
+      sessionStorage.setItem('user', id)
+      let warning = document.getElementById("warning");
+      let check = document.getElementById("check");
+      let nameChecked = false;
+      let ruleChecked = false;
+
+      if (id == "") {
+        warning.textContent = "ユーザIDを入力してください";
+      } else {
+        warning.textContent = "";
+        nameChecked = true;
+      }
+      if (!check.checked) {
+        check_warning.textContent = "実験説明を読み、チェックボックスをチェックしてください";
+      } else {
+        check_warning.textContent = "";
+        ruleChecked = true;
+      }
+      if (nameChecked && ruleChecked) {
+        location.href = '/node2/the-game/explanation_check?user=' + id;
+      }
+    }
+
+  </script>
+</body>
+
+</html>

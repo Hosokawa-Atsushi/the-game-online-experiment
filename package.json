@@ -1,0 +1,16 @@
+{
+  "name": "the-game-online-experiment",
+  "license": "ISC",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "socket.io": "^4.1.3",
+    "tree-kill": "^1.2.2"
+  }
+}

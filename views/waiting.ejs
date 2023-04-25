@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>カードゲーム課題実験待機室</title>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script> -->
+        <script src="socket.io/socket.io.js"></script>
+        <script>
+            // 通信先のサーバを指定する
+            const socket = io('/waiting', {
+                path: '/node2/the-game/socket.io',
+                transports: ['websocket']
+            });
+            socket.on('connect', () => {
+                socket.emit('entry', <%- "'" + user + "'" %>);
+                // 対戦開始イベント
+                socket.on('match', () => {
+                    location.href = '/node2/the-game/game?user=' + <%- "'" + user + "'" %>;
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <p>ようこそ、<%- user %>さん</p>
+        <p>対戦相手とマッチングしています。お待ちください…</p>
+    </body>
+</html>

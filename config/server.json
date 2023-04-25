@@ -1,0 +1,27 @@
+{
+    "LISTEN": {
+        "PORT": 3000
+    },
+    "MYSQL": {
+        "user": "the_game_user",
+        "password": "mysql_password",
+        "database": "the_game",
+        "host": "localhost"
+    },
+    "STATUS": {
+        "MATCHMAKING_SENTE": 1,
+        "MATCHMAKING_GOTE": 2,
+        "INIT": 3,
+        "PLACEMENT": 4,
+        "MESSAGING_SENTE": 5,
+        "MESSAGING_GOTE": 6,
+        "MOVING_SENTE": 7,
+        "MOVING_GOTE": 8,
+        "JUDGMENT": 9,
+        "BREAK": 10,
+        "REQUEST2_SENTE": 11,
+        "REQUEST2_GOTE": 12,
+        "QUESTIONNAIRE": 13,
+        "ERROR": 99
+    }
+}

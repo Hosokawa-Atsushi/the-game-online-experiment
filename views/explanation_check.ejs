@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <style type="text/css">
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      background: white;
+      color: #000;
+      font-family: "Noto Sans Japanese", sans-serif;
+      margin: 1% 10% 1%;
+    }
+
+    .game_example img {
+      width: 400px;
+    }
+
+    .probe img {
+      width: 300px;
+    }
+
+    table {
+      table-layout: fixed;
+      width: 60%;
+    }
+
+    table th.player {
+      width: 5em;
+    }
+
+    table th.points {
+      width: 7em;
+    }
+
+    td {
+      text-align: center;
+    }
+
+    .startButton {
+      width: 150px;
+    }
+
+    #warning {
+      color: #FF0000;
+    }
+
+    #check_warning {
+      color: #FF0000;
+    }
+  </style>
+  <meta charset="UTF-8">
+  <title>実験説明の確認</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/notosansjapanese.css">
+</head>
+
+<body>
+  <h1>実験説明の確認</h1>
+  <h2>ゲームルール確認クイズ</h2>
+  <p>以下の表はブロックの結果を示しています。ⅠからⅤは各ラウンドで出されたカードを表します。</p>
+  <p>空欄に当てはまるカードの数字、各プレイヤーの合計ポイント数を記入し、各ブロックの勝敗を答えてください。</p>
+  <table border="1">
+    <tr>
+      <th class="player">プレイヤー</th>
+      <th>Ⅰ</th>
+      <th>Ⅱ</th>
+      <th>Ⅲ</th>
+      <th>Ⅳ</th>
+      <th>Ⅴ</th>
+      <th class="points">合計ポイント数</th>
+    </tr>
+    <tr>
+      <td>A</td>
+      <td>5</td>
+      <td>
+        <form name="ans1_form" style="display: inline">
+          <input name="ans1" type="text" size="1" />
+        </form>
+      </td>
+      <td>3</td>
+      <td>1</td>
+      <td>4</td>
+      <td>
+        <form name="ans2_form" style="display: inline">
+          <input name="ans2" type="text" size="1" />
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <td>B</td>
+      <td>3</td>
+      <td>2</td>
+      <td>
+        <form name="ans3_form" style="display: inline">
+          <input name="ans3" type="text" size="1" />
+        </form>
+      </td>
+      <td>1</td>
+      <td>5</td>
+      <td>
+        <form name="ans4_form" style="display: inline">
+          <input name="ans4" type="text" size="1" />
+        </form>
+      </td>
+    </tr>
+  </table>
+  <form name="ans5_form">
+    <input name="ans5" type="radio" value="A_won" id="A_won"><label for="A_won">Aの勝ち</label>
+    <input name="ans5" type="radio" value="B_won" id="B_won"><label for="B_won">Bの勝ち</label>
+    <input name="ans5" type="radio" value="drew" id="5_drew"><label for="5_drew">引き分け</label>
+  </form>
+  <br>
+  <table border="1">
+    <tr>
+      <th class="player">プレイヤー</th>
+      <th>Ⅰ</th>
+      <th>Ⅱ</th>
+      <th>Ⅲ</th>
+      <th>Ⅳ</th>
+      <th>Ⅴ</th>
+      <th class="points">合計ポイント数</th>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>
+        <form name="ans6_form" style="display: inline">
+          <input name="ans6" type="text" size="1" />
+        </form>
+      </td>
+      <td>1</td>
+      <td>4</td>
+      <td>2</td>
+      <td>5</td>
+      <td>
+        <form name="ans7_form" style="display: inline">
+          <input name="ans7" type="text" size="1" />
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <td>D</td>
+      <td>2</td>
+      <td>3</td>
+      <td>5</td>
+      <td>
+        <form name="ans8_form" style="display: inline">
+          <input name="ans8" type="text" size="1" />
+        </form>
+      </td>
+      <td>4</td>
+      <td>
+        <form name="ans9_form" style="display: inline">
+          <input name="ans9" type="text" size="1" />
+        </form>
+      </td>
+    </tr>
+  </table>
+  <form name="ans10_form">
+    <input name="ans10" type="radio" value="C_won" id="C_won"><label for="C_won">Cの勝ち</label>
+    <input name="ans10" type="radio" value="D_won" id="D_won"><label for="D_won">Dの勝ち</label>
+    <input name="ans10" type="radio" value="drew" id="10_drew"><label for="10_drew">引き分け</label>
+  </form>
+  <br>
+  <table border="1">
+    <tr>
+      <th class="player">プレイヤー</th>
+      <th>Ⅰ</th>
+      <th>Ⅱ</th>
+      <th>Ⅲ</th>
+      <th>Ⅳ</th>
+      <th>Ⅴ</th>
+      <th class="points">合計ポイント数</th>
+    </tr>
+    <tr>
+      <td>E</td>
+      <td>4</td>
+      <td>1</td>
+      <td>
+        <form name="ans11_form" style="display: inline">
+          <input name="ans11" type="text" size="1" />
+        </form>
+      </td>
+      <td>2</td>
+      <td>3</td>
+      <td>
+        <form name="ans12_form" style="display: inline">
+          <input name="ans12" type="text" size="1" />
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>5</td>
+      <td>
+        <form name="ans13_form" style="display: inline">
+          <input name="ans13" type="text" size="1" />
+        </form>
+      </td>
+      <td>
+        <form name="ans14_form" style="display: inline">
+          <input name="ans14" type="text" size="1" />
+        </form>
+      </td>
+    </tr>
+  </table>
+  <form name="ans15_form">
+    <input name="ans15" type="radio" value="E_won" id="E_won"><label for="E_won">Eの勝ち</label>
+    <input name="ans15" type="radio" value="F_won" id="F_won"><label for="F_won">Fの勝ち</label>
+    <input name="ans15" type="radio" value="drew" id="15_drew"><label for="15_drew">引き分け</label>
+  </form>
+  <br>
+  <button onclick="location.href='/node2/the-game/signup'">戻る</button>
+  <button onclick="taskStartBtn()" class="startButton">実験開始</button>
+
+  <script>
+    function answerOK(ans, num) {
+      return ans == num || String.fromCharCode(ans.charCodeAt(0) - 0xFEE0) == num;
+    }
+
+    function taskStartBtn() {
+      if (answerOK(ans1_form.ans1.value, 2)
+        && answerOK(ans2_form.ans2.value, 1)
+        && answerOK(ans3_form.ans3.value, 4)
+        && answerOK(ans4_form.ans4.value, 2)
+        && ans5_form.ans5.value == "B_won"
+        && answerOK(ans6_form.ans6.value, 3)
+        && answerOK(ans7_form.ans7.value, 3)
+        && answerOK(ans8_form.ans8.value, 1)
+        && answerOK(ans9_form.ans9.value, 2)
+        && ans10_form.ans10.value == "C_won"
+        && answerOK(ans11_form.ans11.value, 5)
+        && answerOK(ans12_form.ans12.value, 2)
+        && answerOK(ans13_form.ans13.value, 3)
+        && answerOK(ans14_form.ans14.value, 2)
+        && ans15_form.ans15.value == "drew"
+      ) {
+        location.href = '/node2/the-game/game?user=' + <%- "'" + user + "'" %>;
+      } else {
+        // どこか間違っている場合
+        alert("正しい回答を入力してください。"); // エラーメッセージを出力
+        return false; // 送信ボタンをキャンセル
+      }
+    }
+  </script>
+</body>
+
+</html>
